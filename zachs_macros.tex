@@ -1,0 +1,237 @@
+% Zach del Rosario's LaTeX macros
+% Inspired by Paul Constantine, Art Owen
+
+% Use \input{zachs_macros} in a latex document
+
+\usepackage{amsmath}  % Needed for \boldsymbol, etc.
+\usepackage{amsfonts} % Needed for \mathbb, etc.
+\usepackage{scalerel,stackengine} % for \reallywidehat{}
+\usepackage{graphicx} % Needed for \includegraphics
+\usepackage{caption}  % Needed for captioning
+%% \usepackage{subcaption}
+
+% --------------------------------------------------
+% Figures and tablse
+% --------------------------------------------------
+% Could use as-is; better for pattern matching
+
+% Image Macro: \img{filename}{caption}
+\newcommand{\img}[2]{
+	\begin{figure}[H]
+	\centering
+	\includegraphics[width=0.6\textwidth]{../images/#1}   % first argument is the file
+	\caption{#2}                  % second argument is caption
+	\label{fig:#1}                % generate label from first argument
+	\end{figure} }
+
+% Double Image Macro: \img{file1}{file2}{caption1}{caption2}
+\newcommand{\imgtwo}[4]{
+	\begin{figure}
+	\centering
+	\begin{minipage}{.5\textwidth}
+		\centering
+		\includegraphics[width=0.9\linewidth]{../images/#1}
+		\captionof{figure}{#3}
+		\label{fig:#1}
+	\end{minipage}%
+	\begin{minipage}{.5\textwidth}
+		\centering
+		\includegraphics[width=0.9\linewidth]{../images/#2}
+		\captionof{figure}{#4}
+		\label{fig:#2}
+	\end{minipage}
+	\end{figure}
+}
+
+% Table Macro: \tab{filename}{caption}
+\newcommand{\tab}[2]{
+	\begin{table}[H]
+	\centering
+	\input{../tables/#1.tex} 	% first argument is filename
+	\caption{#2} 			% second argument is caption
+	\label{tab:#1} 			% generate label from filename
+	\end{table}
+}
+
+% --------------------------------------------------
+% Common sets
+% --------------------------------------------------
+\def\reals{\mathbb{R}} % Real number symbol
+\def\integers{\mathbb{Z}} % Integer symbol
+\def\rationals{\mathbb{Q}} % Rational numbers
+\def\naturals{\mathbb{N}} % Natural numbers
+\def\complex{\mathbb{C}} % Complex numbers
+% With exponent
+\def\R#1{\mathbb{R}^{#1}}
+\def\Z#1{\mathbb{Z}^{#1}}
+\def\Q#1{\mathbb{Q}^{#1}}
+\def\N#1{\mathbb{N}^{#1}}
+\def\C#1{\mathbb{C}^{#1}}
+
+% --------------------------------------------------
+% Vectors and Matrices
+% --------------------------------------------------
+% Vector symbol macros
+\newcommand{\vsym}[1]{\boldsymbol{#1}}
+\def\v#1{\vsym{#1}} % short-shortcut
+
+\newcommand{\va}{\boldsymbol{a}}
+\newcommand{\vb}{\boldsymbol{b}}
+\newcommand{\vc}{\boldsymbol{c}}
+\newcommand{\vd}{\boldsymbol{d}}
+\newcommand{\ve}{\boldsymbol{e}}
+\newcommand{\vf}{\boldsymbol{f}}
+\newcommand{\vg}{\boldsymbol{g}}
+\newcommand{\vh}{\boldsymbol{h}}
+\newcommand{\vi}{\boldsymbol{i}}
+\newcommand{\vj}{\boldsymbol{j}}
+\newcommand{\vk}{\boldsymbol{k}}
+\newcommand{\vl}{\boldsymbol{l}}
+\newcommand{\vm}{\boldsymbol{m}}
+\newcommand{\vn}{\boldsymbol{n}}
+\newcommand{\vo}{\boldsymbol{o}}
+\newcommand{\vp}{\boldsymbol{p}}
+\newcommand{\vq}{\boldsymbol{q}}
+\newcommand{\vr}{\boldsymbol{r}}
+\newcommand{\vs}{\boldsymbol{s}}
+\newcommand{\vt}{\boldsymbol{t}}
+\newcommand{\vu}{\boldsymbol{u}}
+\newcommand{\vv}{\boldsymbol{v}}
+\newcommand{\vw}{\boldsymbol{w}}
+\newcommand{\vx}{\boldsymbol{x}}
+\newcommand{\vy}{\boldsymbol{y}}
+\newcommand{\vz}{\boldsymbol{z}}
+
+% Vector symbol + tilde macros
+\newcommand{\vta}{\tilde{\boldsymbol{a}}}
+\newcommand{\vtb}{\tilde{\boldsymbol{b}}}
+\newcommand{\vtc}{\tilde{\boldsymbol{c}}}
+\newcommand{\vtd}{\tilde{\boldsymbol{d}}}
+\newcommand{\vte}{\tilde{\boldsymbol{e}}}
+\newcommand{\vtf}{\tilde{\boldsymbol{f}}}
+\newcommand{\vtg}{\tilde{\boldsymbol{g}}}
+\newcommand{\vth}{\tilde{\boldsymbol{h}}}
+\newcommand{\vti}{\tilde{\boldsymbol{i}}}
+\newcommand{\vtj}{\tilde{\boldsymbol{j}}}
+\newcommand{\vtk}{\tilde{\boldsymbol{k}}}
+\newcommand{\vtl}{\tilde{\boldsymbol{l}}}
+\newcommand{\vtm}{\tilde{\boldsymbol{m}}}
+\newcommand{\vtn}{\tilde{\boldsymbol{n}}}
+\newcommand{\vto}{\tilde{\boldsymbol{o}}}
+\newcommand{\vtp}{\tilde{\boldsymbol{p}}}
+\newcommand{\vtq}{\tilde{\boldsymbol{q}}}
+\newcommand{\vtr}{\tilde{\boldsymbol{r}}}
+\newcommand{\vts}{\tilde{\boldsymbol{s}}}
+\newcommand{\vtt}{\tilde{\boldsymbol{t}}}
+\newcommand{\vtu}{\tilde{\boldsymbol{u}}}
+\newcommand{\vtv}{\tilde{\boldsymbol{v}}}
+\newcommand{\vtw}{\tilde{\boldsymbol{w}}}
+\newcommand{\vtx}{\tilde{\boldsymbol{x}}}
+\newcommand{\vty}{\tilde{\boldsymbol{y}}}
+\newcommand{\vtz}{\tilde{\boldsymbol{z}}}
+
+% Vector symbol + hat macros
+\newcommand{\vha}{\hat{\boldsymbol{a}}}
+\newcommand{\vhb}{\hat{\boldsymbol{b}}}
+\newcommand{\vhc}{\hat{\boldsymbol{c}}}
+\newcommand{\vhd}{\hat{\boldsymbol{d}}}
+\newcommand{\vhe}{\hat{\boldsymbol{e}}}
+\newcommand{\vhf}{\hat{\boldsymbol{f}}}
+\newcommand{\vhg}{\hat{\boldsymbol{g}}}
+\newcommand{\vhh}{\hat{\boldsymbol{h}}}
+\newcommand{\vhi}{\hat{\boldsymbol{i}}}
+\newcommand{\vhj}{\hat{\boldsymbol{j}}}
+\newcommand{\vhk}{\hat{\boldsymbol{k}}}
+\newcommand{\vhl}{\hat{\boldsymbol{l}}}
+\newcommand{\vhm}{\hat{\boldsymbol{m}}}
+\newcommand{\vhn}{\hat{\boldsymbol{n}}}
+\newcommand{\vho}{\hat{\boldsymbol{o}}}
+\newcommand{\vhp}{\hat{\boldsymbol{p}}}
+\newcommand{\vhq}{\hat{\boldsymbol{q}}}
+\newcommand{\vhr}{\hat{\boldsymbol{r}}}
+\newcommand{\vhs}{\hat{\boldsymbol{s}}}
+\newcommand{\vht}{\hat{\boldsymbol{t}}}
+\newcommand{\vhu}{\hat{\boldsymbol{u}}}
+\newcommand{\vhv}{\hat{\boldsymbol{v}}}
+\newcommand{\vhw}{\hat{\boldsymbol{w}}}
+\newcommand{\vhx}{\hat{\boldsymbol{x}}}
+\newcommand{\vhy}{\hat{\boldsymbol{y}}}
+\newcommand{\vhz}{\hat{\boldsymbol{z}}}
+
+% Matrix symbol
+\newcommand{\msym}[1]{\boldsymbol{#1}}
+\def\m#1{\msym{#1}} % short-shortcut
+
+\newcommand{\mA}{\boldsymbol{A}}
+\newcommand{\mB}{\boldsymbol{B}}
+\newcommand{\mC}{\boldsymbol{C}}
+\newcommand{\mD}{\boldsymbol{D}}
+\newcommand{\mE}{\boldsymbol{E}}
+\newcommand{\mF}{\boldsymbol{F}}
+\newcommand{\mG}{\boldsymbol{G}}
+\newcommand{\mH}{\boldsymbol{H}}
+\newcommand{\mI}{\boldsymbol{I}}
+\newcommand{\mJ}{\boldsymbol{J}}
+\newcommand{\mK}{\boldsymbol{K}}
+\newcommand{\mL}{\boldsymbol{L}}
+\newcommand{\mM}{\boldsymbol{M}}
+\newcommand{\mN}{\boldsymbol{N}}
+\newcommand{\mO}{\boldsymbol{O}}
+\newcommand{\mP}{\boldsymbol{P}}
+\newcommand{\mQ}{\boldsymbol{Q}}
+\newcommand{\mR}{\boldsymbol{R}}
+\newcommand{\mS}{\boldsymbol{S}}
+\newcommand{\mT}{\boldsymbol{T}}
+\newcommand{\mU}{\boldsymbol{U}}
+\newcommand{\mV}{\boldsymbol{V}}
+\newcommand{\mW}{\boldsymbol{W}}
+\newcommand{\mX}{\boldsymbol{X}}
+\newcommand{\mY}{\boldsymbol{Y}}
+\newcommand{\mZ}{\boldsymbol{Z}}
+
+% Tilde over letter
+\newcommand{\tla}{\tilde{a}}
+\newcommand{\tlb}{\tilde{b}}
+\newcommand{\tlc}{\tilde{c}}
+\newcommand{\tld}{\tilde{d}}
+\newcommand{\tle}{\tilde{e}}
+\newcommand{\tlf}{\tilde{f}}
+\newcommand{\tlg}{\tilde{g}}
+\newcommand{\tlh}{\tilde{h}}
+\newcommand{\tli}{\tilde{i}}
+\newcommand{\tlj}{\tilde{j}}
+\newcommand{\tlk}{\tilde{k}}
+\newcommand{\tll}{\tilde{l}}
+\newcommand{\tlm}{\tilde{m}}
+\newcommand{\tln}{\tilde{n}}
+\newcommand{\tlo}{\tilde{o}}
+\newcommand{\tlp}{\tilde{p}}
+\newcommand{\tlq}{\tilde{q}}
+\newcommand{\tlr}{\tilde{r}}
+\newcommand{\tls}{\tilde{s}}
+\newcommand{\tlt}{\tilde{t}}
+\newcommand{\tlu}{\tilde{u}}
+\newcommand{\tlv}{\tilde{v}}
+\newcommand{\tlw}{\tilde{w}}
+\newcommand{\tlx}{\tilde{x}}
+\newcommand{\tly}{\tilde{y}}
+\newcommand{\tlz}{\tilde{z}}
+
+% --------------------------------------------------
+% Misc
+% --------------------------------------------------
+
+% Angle bracket average
+\newcommand{\avg}[1]{\left\langle#1\right\rangle}
+
+% Comical & useful reallywidehat
+\stackMath
+\newcommand\reallywidehat[1]{%
+\savestack{\tmpbox}{\stretchto{%
+  \scaleto{%
+    \scalerel*[\widthof{\ensuremath{#1}}]{\kern-.6pt\bigwedge\kern-.6pt}%
+    {\rule[-\textheight/2]{1ex}{\textheight}}%WIDTH-LIMITED BIG WEDGE
+  }{\textheight}%
+}{0.5ex}}%
+\stackon[1pt]{#1}{\tmpbox}%
+}
