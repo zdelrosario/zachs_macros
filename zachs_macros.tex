@@ -3,12 +3,12 @@
 
 % Use \input{zachs_macros} in a latex document
 
-\usepackage{amsmath}  % Needed for \boldsymbol, etc.
-\usepackage{amsfonts} % Needed for \mathbb, etc.
+\usepackage{amsmath}  % for \boldsymbol, etc.
+\usepackage{amsfonts} % for \mathbb, etc.
 \usepackage{scalerel,stackengine} % for \reallywidehat{}
-\usepackage{graphicx} % Needed for \includegraphics
-\usepackage{caption}  % Needed for captioning
-%% \usepackage{subcaption}
+\usepackage{graphicx} % for \includegraphics
+\usepackage{caption}  % for captioning
+\usepackage{mathtools}% for \ceil and \floor
 
 % --------------------------------------------------
 % Figures and tablse
@@ -223,6 +223,11 @@
 
 % Angle bracket average
 \newcommand{\avg}[1]{\left\langle#1\right\rangle}
+
+% Floor and ceiling
+% http://tex.stackexchange.com/questions/118173/how-to-write-ceil-and-floor-in-latex
+\DeclarePairedDelimiter\ceil{\lceil}{\rceil}
+\DeclarePairedDelimiter\floor{\lfloor}{\rfloor}
 
 % Comical & useful reallywidehat
 \stackMath
