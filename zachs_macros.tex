@@ -73,8 +73,8 @@
 % --------------------------------------------------
 % Vector symbol macros
 \newcommand{\vsym}[1]{\boldsymbol{#1}}
-\def\v#1{\vsym{#1}} % short-shortcut
-
+\def\v#1{\vsym{#1}} % \v{x} for vector symbol
+% Quick letter vectors
 \newcommand{\va}{\boldsymbol{a}}
 \newcommand{\vb}{\boldsymbol{b}}
 \newcommand{\vc}{\boldsymbol{c}}
@@ -216,6 +216,33 @@
 \newcommand{\tlx}{\tilde{x}}
 \newcommand{\tly}{\tilde{y}}
 \newcommand{\tlz}{\tilde{z}}
+
+% --------------------------------------------------
+% Common probability symbols
+% --------------------------------------------------
+% Lovingly ripped from Art Owen
+\def\E{\mathbb{E}} % Expectation symbol
+\def\Earg#1{\E\left[{#1}\right]}
+\def\Esubarg#1#2{\E_{#1}\left[{#2}\right]}
+\def\P{\mathbb{P}} % Probability symbol
+\def\Parg#1{\P\left({#1}\right)}
+\def\Psubarg#1#2{\P_{#1}\left[{#2}\right]}
+\def\Cov{\mrm{Cov}} % Covariance symbol
+\def\Covarg#1{\Cov\left[{#1}\right]}
+\def\Covsubarg#1#2{\Cov_{#1}\left[{#2}\right]}
+\newcommand{\family}{\mathcal{P}} % probability family / statistical model
+\newcommand{\iid}{\stackrel{\mathrm{iid}}{\sim}}
+\newcommand{\ind}{\stackrel{\mathrm{ind}}{\sim}}
+\def\E{\mathbb{E}} % Expectation symbol
+\def\Earg#1{\E\left[{#1}\right]}
+\def\Esubarg#1#2{\E_{#1}\left[{#2}\right]}
+\def\P{\mathbb{P}} % Probability symbol
+\def\Parg#1{\P\left({#1}\right)}
+\def\Psubarg#1#2{\P_{#1}\left[{#2}\right]}
+\def\Cov{\mrm{Cov}} % Covariance symbol
+\def\Covarg#1{\Cov\left[{#1}\right]}
+\def\Covsubarg#1#2{\Cov_{#1}\left[{#2}\right]}
+\newcommand{\model}{\mathcal{P}} % probability family / statistical model
 
 % --------------------------------------------------
 % Misc
