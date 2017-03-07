@@ -19,7 +19,7 @@ Input in your preamble to use; i.e.
 
 \begin{document}
 % Lots of crazy math happens here...
-\end{document
+\end{document}
 ```
 
 I'm still working on better documentation / a demo file...
