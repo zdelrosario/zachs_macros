@@ -283,6 +283,7 @@
   \fi%
 }
 
+
 % --------------------------------------------------
 % Fractions
 % --------------------------------------------------
@@ -367,3 +368,11 @@
 \num\newcommand{\f97}{\frac{9}{7}}
 \num\newcommand{\f98}{\frac{9}{8}}
 \num\newcommand{\f99}{\frac{9}{9}}
+
+% --------------------------------------------------
+% Cylindrical and Spherical operators
+% --------------------------------------------------
+% Cylindrical coordinates {r,\phi,z}
+\num\newcommand{\cdiv1}[1]{\frac{1}{r}\frac{\partial}{\partial r}(r#1)}
+\num\newcommand{\cdiv2}[1]{\frac{1}{r}\frac{\partial}{\partial\phi}(#1)}
+\num\newcommand{\cdiv3}[1]{\frac{\partial}{\partial z}(#1)}
