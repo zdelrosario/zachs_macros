@@ -370,3 +370,16 @@
 \num\newcommand{\cdiv1}[1]{\frac{1}{r}\frac{\partial}{\partial r}(r#1)}
 \num\newcommand{\cdiv2}[1]{\frac{1}{r}\frac{\partial}{\partial\phi}(#1)}
 \num\newcommand{\cdiv3}[1]{\frac{\partial}{\partial z}(#1)}
+
+%--------------------------------------------------
+% matminux
+%--------------------------------------------------
+% https://tex.stackexchange.com/questions/75545/negative-sign-and-matrix-alignment
+\newcommand*{\mm}{%
+  \leavevmode
+  \hphantom{0}%
+  \llap{%
+    \settowidth{\dimen0 }{$0$}%
+    \resizebox{1.1\dimen0 }{\height}{$-$}%
+  }%
+}
