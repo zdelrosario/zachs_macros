@@ -14,9 +14,10 @@
 \usepackage{graphicx} % for \includegraphics
 \usepackage{caption}  % for captioning
 \usepackage{mathtools}% for \ceil and \floor
+\usepackage{forest}   % for forest environment
 
 % --------------------------------------------------
-% Figures and tablse
+% Figures and tables
 % --------------------------------------------------
 % Could use as-is; better for pattern matching
 
@@ -225,6 +226,35 @@
 \newcommand{\tly}{\tilde{y}}
 \newcommand{\tlz}{\tilde{z}}
 
+% Caligraphic symbol
+\def\c#1{\mathcal{#1}} % short-shortcut
+
+\newcommand{\cA}{\mathcal{A}}
+\newcommand{\cB}{\mathcal{B}}
+\newcommand{\cC}{\mathcal{C}}
+\newcommand{\cD}{\mathcal{D}}
+\newcommand{\cE}{\mathcal{E}}
+\newcommand{\cF}{\mathcal{F}}
+\newcommand{\cG}{\mathcal{G}}
+\newcommand{\cH}{\mathcal{H}}
+\newcommand{\cI}{\mathcal{I}}
+\newcommand{\cJ}{\mathcal{J}}
+\newcommand{\cK}{\mathcal{K}}
+\newcommand{\cL}{\mathcal{L}}
+\newcommand{\cM}{\mathcal{M}}
+\newcommand{\cN}{\mathcal{N}}
+\newcommand{\cO}{\mathcal{O}}
+\newcommand{\cP}{\mathcal{P}}
+\newcommand{\cQ}{\mathcal{Q}}
+\newcommand{\cR}{\mathcal{R}}
+\newcommand{\cS}{\mathcal{S}}
+\newcommand{\cT}{\mathcal{T}}
+\newcommand{\cU}{\mathcal{U}}
+\newcommand{\cV}{\mathcal{V}}
+\newcommand{\cW}{\mathcal{W}}
+\newcommand{\cX}{\mathcal{X}}
+\newcommand{\cY}{\mathcal{Y}}
+\newcommand{\cZ}{\mathcal{Z}}
 % --------------------------------------------------
 % Common probability symbols
 % --------------------------------------------------
@@ -277,6 +307,32 @@
   \fi%
 }
 
+% Use a forest environment to depict a directory tree
+% https://tex.stackexchange.com/questions/5073/making-a-simple-directory-tree
+\newcommand{\ftree}[1]{%
+\begin{forest}
+for tree={
+    font=\ttfamily,
+    grow'=0,
+    child anchor=west,
+    parent anchor=south,
+    anchor=west,
+    calign=first,
+    edge path={
+      \noexpand\path [draw, \forestoption{edge}]
+      (!u.south west) +(7.5pt,0) |- node[fill,inner sep=1.25pt] {} (.child anchor)\forestoption{edge label};
+    },
+    before typesetting nodes={
+      if n=1
+        {insert before={[,phantom]}}
+        {}
+    },
+    fit=band,
+    before computing xy={l=15pt},
+  }%
+  #1%
+\end{forest}
+}
 
 % --------------------------------------------------
 % Fractions
