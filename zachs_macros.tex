@@ -297,6 +297,19 @@
 \stackon[1pt]{#1}{\tmpbox}%
 }
 
+% Comical & useful reallywideparen
+\newcommand\reallywideparen[1]{%
+\begin{array}{c}
+\stretchto{
+  \scaleto{
+    \scalerel*[\widthof{#1}]{\frown}
+    {\rule[-\textheight/2]{1ex}{\textheight}} %WIDTH-LIMITED BIG WEDGE
+  }{1.25\textheight} % THIS STRETCHES THE WEDGE A LITTLE EXTRA WIDE
+}{0.5ex}\\           % THIS SQUEEZES THE WEDGE TO 0.5ex HEIGHT
+#1\\                   % THIS STACKS THE WEDGE ATOP THE ARGUMENT
+\rule{0ex}{.01ex}
+\end{array}
+}
 % Useful for debugging; prints to document whether command has been defined already
 % Via: http://tex.stackexchange.com/questions/30483/how-can-i-check-in-latex-or-plain-tex-whether-a-command-exists-by-name
 \newcommand{\checkfor}[1]{%
