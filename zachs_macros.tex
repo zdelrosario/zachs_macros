@@ -280,6 +280,15 @@
 % Angle bracket average
 \newcommand{\avg}[1]{\left\langle#1\right\rangle}
 
+% Markless footnote
+% https://tex.stackexchange.com/questions/30720/footnote-without-a-marker
+\newcommand\blfootnote[1]{%
+  \begingroup
+  \renewcommand\thefootnote{}\footnote{#1}%
+  \addtocounter{footnote}{-1}%
+  \endgroup
+}
+
 % Floor and ceiling
 % http://tex.stackexchange.com/questions/118173/how-to-write-ceil-and-floor-in-latex
 \DeclarePairedDelimiter\ceil{\lceil}{\rceil}
