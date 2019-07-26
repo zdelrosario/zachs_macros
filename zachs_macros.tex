@@ -15,6 +15,7 @@
 \usepackage{amsfonts} % for \mathbb, etc.
 \usepackage{scalerel,stackengine} % for \reallywidehat{}
 \usepackage{graphicx} % for \includegraphics
+\usepackage{xcolor}   % for \mathcolor definition
 \usepackage{caption}  % for captioning
 \usepackage{mathtools}% for \ceil and \floor
 \usepackage{forest}   % for forest environment
@@ -281,6 +282,17 @@
 % --------------------------------------------------
 % Misc
 % --------------------------------------------------
+% \mathcolor for math mode
+\makeatletter
+\def\mathcolor#1#{\@mathcolor{#1}}
+\def\@mathcolor#1#2#3{%
+  \protect\leavevmode
+  \begingroup
+    \color#1{#2}#3%
+  \endgroup
+}
+\makeatother
+
 % argmin and argmax
 \DeclareMathOperator*{\argmax}{arg\,max}
 \DeclareMathOperator*{\argmin}{arg\,min}
